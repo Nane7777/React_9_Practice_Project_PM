@@ -29,7 +29,14 @@ function App() {
     }
 
     function handleDeleteTask(id) {
-
+        setProjectsState(prevState => {
+            return {
+                ...prevState,
+                tasks: prevState.tasks.filter(
+                    (task) => task.id !== id
+                ),
+            };
+        });
     }
 
     function handleSelectProject(id) {
@@ -75,7 +82,7 @@ function App() {
         });
     }
 
-    function handleDeleteProject(id) {
+    function handleDeleteProject() {
         setProjectsState(prevState => {
             return {
                 ...prevState,
